@@ -22,6 +22,7 @@ export default function Home() {
     return wrappedProvider;
   };
 
+  // Self.ID provides a hook called useViewerConnection which gives us an easy way to connect and disconnect to the Ceramic Network
   const [connection, connect, disconnect] = useViewerConnection();
 
   // Initialize Web3Modal
@@ -86,6 +87,8 @@ export default function Home() {
 }
 
 function RecordSetter() {
+
+  // Another hook provided to us by Self.ID called useViewerRecord which allows storing and retrieving profile information on Ceramic Network
   const record = useViewerRecord("basicProfile");
 
   const updateRecordName = async (name) => {
@@ -94,6 +97,7 @@ function RecordSetter() {
     });
   };
 
+  // A state variable for name that you can type out to update your record
   const [name, setName] = useState("");
 
   return (
